@@ -1,4 +1,9 @@
-fetch('https://jsonplaceholder.typicode.com/users/11')
+fetch('https://jsonplaceholder.typicode.com/users/8', {
+  method: 'DELETE',
+  headers: {
+    'Content-Type': 'application/json',
+  },
+})
   .then((res) => {
     if (!res.ok) {
       throw new Error('Not ok');
@@ -6,8 +11,8 @@ fetch('https://jsonplaceholder.typicode.com/users/11')
     return res.json();
   })
   .then((data) => {
-    console.log(data);
+    document.getElementById('p').innerHTML = data.name;
   })
   .catch((error) => {
-    console.log(error);
+    console.warn(error);
   });
